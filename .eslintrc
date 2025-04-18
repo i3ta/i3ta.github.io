@@ -4,21 +4,18 @@
     "browser": true,
     "node": true
   },
-  "parser": "@babel/eslint-parser",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 8,
-    "sourceType": "module",
-    "allowImportExportEverywhere": true,
-    "requireConfigFile": false,
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "babelOptions": {
-      "presets": ["@babel/preset-react"]
-    }
+    "project": "./tsconfig.json",
+    "sourceType": "module"
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
-  "plugins": ["react", "unused-imports"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "prettier"
+  ],
+  "plugins": ["@typescript-eslint", "react", "unused-imports"],
   "rules": {
     "camelcase": "warn",
     "max-len": [
