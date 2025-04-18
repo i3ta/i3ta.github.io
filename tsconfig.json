@@ -23,5 +23,11 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true
+  },
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   }
 }
