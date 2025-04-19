@@ -19,7 +19,7 @@ export const RotatingCamera = ({
 
     camera.position.set(x, y, z);
     camera.lookAt(0, 0, 0);
-    camera.up.set(Math.sin(angle.current), -Math.cos(angle.current), 1);
+    camera.up.set(Math.sin(angle.current), -Math.cos(angle.current), 0.7);
   });
 
   return null;

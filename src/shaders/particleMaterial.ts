@@ -105,8 +105,7 @@ const vertexShader = /* glsl */ `
     return 2.2 * n_xyz;
   }
 
-  varying float vZDepth;
-  varying float vScreenX;
+  varying float vModelZ;
 
   void main() {
     vec3 pos = position;
@@ -127,30 +126,23 @@ const vertexShader = /* glsl */ `
     vec4 viewPos = modelViewMatrix * worldPos;
     vec4 clipPos = projectionMatrix * viewPos;
 
-    gl_Position = clipPos;
+    vModelZ = worldPos.z + 3.0;
 
-    vZDepth = viewPos.z;
-    vScreenX = (clipPos.x / clipPos.w) * 0.5 + 0.5;
+    gl_Position = clipPos;
   }
 `;
 
 const fragmentShader = /* glsl */ `
   precision highp float;
 
-  varying float vZDepth;
-  varying float vScreenX;
+  varying float vModelZ;
 
   void main() {
-    vec3 cyan = vec3(0.0, 1.0, 1.0);
-    vec3 green = vec3(0.0, 1.0, 0.0);
+    vec3 cyan = vec3(0.06666666666666667, 0.6, 0.5568627450980392);
+    vec3 green = vec3(0, 0.9490196078431372, 0.3764705882352941);
 
-    vec3 baseColor = mix(cyan, green, vScreenX);
-
-    float depthFade = smoothstep(-10.0, -2.0, vZDepth);
-    vec3 finalColor = mix(baseColor, vec3(1.0), depthFade * 0.3);
-
-    finalColor *= 1.2;
-
+    float zFactor = smoothstep(-5.0, 5.0, vModelZ);
+    vec3 finalColor = mix(cyan, green, zFactor);
     gl_FragColor = vec4(finalColor, 1.0);
   }
 `;

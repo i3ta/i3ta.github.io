@@ -5,7 +5,7 @@ import { EffectComposer, Bloom } from '@react-three/postprocessing';
 
 export const Main = () => {
   return (
-    <div className="w-screen h-screen bg-neutral-800">
+    <div className="fixed w-screen h-screen bg-neutral-800">
       <Canvas
         camera={{ position: [0, 0, 5], fov: 45 }}
         gl={{ preserveDrawingBuffer: true }}
