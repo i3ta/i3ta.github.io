@@ -1,19 +1,11 @@
 import { Button } from '@/components/ui/button';
 import { motion, useAnimation } from 'framer-motion';
 import { useRef } from 'react';
-import { useEnter } from '~/hooks/useEnter';
 
 export const HeroContent = () => {
   /* Title entrance animation */
   const titleRef = useRef<HTMLHeadingElement>(null);
   const controls = useAnimation();
-  const handleViewportEnter = () => {
-    controls.start({
-      y: 0,
-      transition: { type: 'spring', stiffness: 100, damping: 20 },
-    });
-  };
-  useEnter(titleRef, handleViewportEnter, false);
 
   return (
     <div
@@ -26,6 +18,8 @@ export const HeroContent = () => {
           ref={titleRef}
           className="font-bold text-9xl leading-[1.2] bg-linear-to-r from-tblue to-tgreen text-transparent bg-clip-text"
           initial={{ y: '100%' }}
+          whileInView={{ y: '0%' }}
+          transition={{ type: 'spring', duration: 1, bounce: 0 }}
           animate={controls}
         >
           Aaron Hung
@@ -50,11 +44,13 @@ export const HeroContent = () => {
         sciences. You can explore some of my key projects, publications, and
         ongoing work below.
       </p>
-      <Button className="w-32">
-        <a target="_blank" rel="noreferrer" href="">
-          Resume
-        </a>
-      </Button>
+      <div className="w-1/2 flex flex-col items-center">
+        <Button className="w-32">
+          <a target="_blank" rel="noreferrer" href="">
+            Resume
+          </a>
+        </Button>
+      </div>
     </div>
   );
 };
