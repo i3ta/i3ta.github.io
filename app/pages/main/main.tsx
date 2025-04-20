@@ -12,8 +12,7 @@ import {
 import { Loader } from '~/components/loader';
 import { useProgress } from '@react-three/drei';
 import { useLoader } from '~/contexts/loaderContext';
-import { useEffect } from 'react';
-import { Timeline } from '~/components/timeline';
+import { useEffect, useRef, useState } from 'react';
 import { Experience } from '~/components/experience';
 import { Projects } from '~/components/projects';
 import { Publications } from '~/components/publications';
@@ -30,7 +29,10 @@ export const Main = () => {
   const bgRight = useScale(scrollY, [0, 400], [0, 5]);
   const bgTop = useScale(scrollY, [0, 400], [0, 5]);
   const bgBorderRadius = useScale(scrollY, [0, 400], [0, 20]);
-  const stopAt = 450;
+
+  /* Model stop scrolling position */
+  const [stopAt, setStopAt] = useState(450);
+  const heroRef = useRef(null!);
   const shouldFix = scrollY < stopAt;
 
   useEffect(() => {
@@ -38,6 +40,18 @@ export const Main = () => {
       setLoaded(true);
     }
   }, [canvasLoaded]);
+
+  useEffect(() => {
+    const getDims = () => {
+      if (heroRef.current) {
+        setStopAt(Math.max(450, heroRef.current.offsetHeight - 590));
+      }
+    };
+
+    window.addEventListener('resize', getDims);
+    getDims();
+    return () => window.removeEventListener('resize', getDims);
+  }, [heroRef]);
 
   return (
     <>
@@ -86,7 +100,7 @@ export const Main = () => {
         {/* Content */}
         <div className="relative w-9/10 max-w-5xl flex flex-col items-start gap-8">
           <div className="relative mt-36">
-            <HeroContent />
+            <HeroContent ref={heroRef} />
           </div>
           <div className="relative w-full flex flex-col items-center">
             <Tabs defaultValue="experience" className="w-10/12 max-w-5xl">

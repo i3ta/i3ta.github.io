@@ -1,8 +1,12 @@
 import { Button } from '@/components/ui/button';
 import { motion, useAnimation } from 'motion/react';
-import { useRef } from 'react';
+import { useRef, type LegacyRef, type RefObject } from 'react';
 
-export const HeroContent = () => {
+export const HeroContent = ({
+  ref,
+}: {
+  ref: LegacyRef<HTMLDivElement> | undefined;
+}) => {
   /* Title entrance animation */
   const titleRef = useRef<HTMLHeadingElement>(null);
   const controls = useAnimation();
@@ -11,6 +15,7 @@ export const HeroContent = () => {
     <div
       className="flex flex-col gap-8"
       style={{ minHeight: 'calc(90vh + 450px - 9rem)' }}
+      ref={ref}
     >
       <div className="flex flex-col overflow-hidden">
         <h2>Hi, I&apos;m</h2>
