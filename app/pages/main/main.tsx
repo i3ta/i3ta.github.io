@@ -16,6 +16,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Experience } from '~/components/experience';
 import { Projects } from '~/components/projects';
 import { Publications } from '~/components/publications';
+import { Footer } from '~/components/footer';
 
 export const Main = () => {
   const { loaded: canvasLoaded } = useProgress();
@@ -120,10 +121,10 @@ export const Main = () => {
               </TabsContent>
             </Tabs>
           </div>
-
-          <div className="w-1 h-24" />
         </div>
       </div>
+
+      <Footer />
     </>
   );
 };
