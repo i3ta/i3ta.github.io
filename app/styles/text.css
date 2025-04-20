@@ -2,7 +2,11 @@
 
 h1 {
   font-family: 'San Francisco', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 48px;
+}
+
+h2 {
+  font-family: 'San Francisco', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 36px;
   color: #ffffff;
 }
 
