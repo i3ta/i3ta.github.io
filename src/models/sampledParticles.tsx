@@ -1,7 +1,7 @@
-import { ParticleMaterial } from '@/shaders/particleMaterial';
+import { ParticleMaterial } from '@/materials/particleMaterial';
 import { Sampler, type TransformFn } from '@react-three/drei';
 import { extend, useFrame, useThree } from '@react-three/fiber';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
 extend({ ParticleMaterial });
@@ -57,7 +57,7 @@ export const SampledParticles = ({
         ref={instancedMeshRef}
         args={[undefined, undefined, count]}
       >
-        <sphereGeometry args={[0.015]} />
+        <sphereGeometry args={[0.01]} />
         <particleMaterial ref={materialRef} />
       </instancedMesh>
     </Sampler>

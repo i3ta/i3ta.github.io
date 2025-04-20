@@ -1,0 +1,13 @@
+/*** Text classes ***/
+
+h1 {
+  font-family: 'San Francisco', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 48px;
+  color: #ffffff;
+}
+
+p {
+  font-family: 'San Francisco', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+}
