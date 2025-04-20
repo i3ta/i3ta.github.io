@@ -37,47 +37,53 @@ export const Main = () => {
       >
         <DNABackground cameraAngle={2.8} />
       </div>
+      <div className="absolute top-8 right-8 flex flex-row gap-4">
+        <Button variant="ghost" size="icon" className="cursor-pointer">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.linkedin.com/in/chia-chien-hung-78456a285"
+          >
+            <IconBrandLinkedin className="!w-6 !h-6" />
+          </a>
+        </Button>
+        <Button variant="ghost" size="icon" className="cursor-pointer">
+          <a target="_blank" rel="noreferrer" href="https://github.com/i3ta">
+            <IconBrandGithub className="!w-6 !h-6" />
+          </a>
+        </Button>
+        <Button variant="ghost" size="icon" className="cursor-pointer">
+          <a href="mailto:ahx5x16@gmail.com">
+            <IconMail className="!w-6 !h-6" />
+          </a>
+        </Button>
+      </div>
 
       {/* Content */}
       <div className="relative w-9/10 max-w-5xl flex flex-col items-start gap-8">
-        <div className="absolute top-0 right-0 flex flex-row gap-4">
-          <Button variant="ghost" size="icon" className="cursor-pointer">
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://www.linkedin.com/in/chia-chien-hung-78456a285"
-            >
-              <IconBrandLinkedin className="!w-6 !h-6" />
-            </a>
-          </Button>
-          <Button variant="ghost" size="icon" className="cursor-pointer">
-            <a target="_blank" rel="noreferrer" href="https://github.com/i3ta">
-              <IconBrandGithub className="!w-6 !h-6" />
-            </a>
-          </Button>
-          <Button variant="ghost" size="icon" className="cursor-pointer">
-            <a href="mailto:ahx5x16@gmail.com">
-              <IconMail className="!w-6 !h-6" />
-            </a>
-          </Button>
-        </div>
-        <div className="relative top-36">
+        <div className="relative mt-36">
           <HeroContent />
         </div>
-        <div className="w-full">
-          <Tabs defaultValue="account" className="w-[400px]">
-            <TabsList>
-              <TabsTrigger value="account">Account</TabsTrigger>
-              <TabsTrigger value="password">Password</TabsTrigger>
+        <div className="relative w-full flex flex-col items-center">
+          <Tabs defaultValue="experience" className="w-10/12 max-w-5xl">
+            <TabsList className="w-full">
+              <TabsTrigger value="experience">Experience</TabsTrigger>
+              <TabsTrigger value="projects">Projects</TabsTrigger>
+              <TabsTrigger value="publications">Publications</TabsTrigger>
             </TabsList>
-            <TabsContent value="account">
+            <TabsContent value="experience">
               Make changes to your account here.
             </TabsContent>
-            <TabsContent value="password">
+            <TabsContent value="projects">
+              Change your password here.
+            </TabsContent>
+            <TabsContent value="publications">
               Change your password here.
             </TabsContent>
           </Tabs>
         </div>
+
+        <div className="w-1 h-24" />
       </div>
     </div>
   );

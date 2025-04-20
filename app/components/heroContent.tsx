@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import { motion, useAnimation } from 'framer-motion';
 import { useRef } from 'react';
 import { useEnter } from '~/hooks/useEnter';
@@ -17,7 +18,7 @@ export const HeroContent = () => {
   return (
     <div
       className="flex flex-col gap-8"
-      style={{ minHeight: 'calc(90vh + 400px)' }}
+      style={{ minHeight: 'calc(90vh + 450px - 9rem)' }}
     >
       <div className="flex flex-col overflow-hidden">
         <h2>Hi, I&apos;m</h2>
@@ -49,6 +50,11 @@ export const HeroContent = () => {
         sciences. You can explore some of my key projects, publications, and
         ongoing work below.
       </p>
+      <Button className="w-32">
+        <a target="_blank" rel="noreferrer" href="">
+          Resume
+        </a>
+      </Button>
     </div>
   );
 };
