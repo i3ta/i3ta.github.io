@@ -32,12 +32,11 @@ export const DNABackground = ({ cameraAngle }: { cameraAngle?: number }) => {
         {/* Glow effect */}
         <CurvedPlane
           position={[-3, -3, 0]}
-          rotation={[-1.4, -0.3, 0.0]}
+          rotation={[-1.4, -0.3, 1.5]}
           radius={100}
           angle={0.3}
         />
-        <pointLight position={[-1, 0, 0]} intensity={5} />
-        {/* <ambientLight intensity={5} /> */}
+        <pointLight position={[-1, 0, 0]} intensity={7} />
       </Canvas>
     </div>
   );
