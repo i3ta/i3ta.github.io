@@ -52,7 +52,7 @@ export const Main = () => {
             width: `${bgWidth}vw`,
             height: `${bgHeight}vh`,
             right: `${bgRight}vw`,
-            top: shouldFix ? `${bgTop}vh` : `${stopAt}px`,
+            top: shouldFix ? `${bgTop}vh` : `calc(5vh + ${stopAt}px)`,
             borderRadius: `${bgBorderRadius}px`,
           }}
         >
