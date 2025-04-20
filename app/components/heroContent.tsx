@@ -46,7 +46,7 @@ export const HeroContent = () => {
       </p>
       <div className="w-1/2 flex flex-col items-center">
         <Button className="w-32">
-          <a target="_blank" rel="noreferrer" href="">
+          <a target="_blank" rel="noreferrer" href="/resume.pdf">
             Resume
           </a>
         </Button>

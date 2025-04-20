@@ -15,6 +15,8 @@ import { useLoader } from '~/contexts/loaderContext';
 import { useEffect } from 'react';
 import { Timeline } from '~/components/timeline';
 import { Experience } from '~/components/experience';
+import { Projects } from '~/components/projects';
+import { Publications } from '~/components/publications';
 
 export const Main = () => {
   const { loaded: canvasLoaded } = useProgress();
@@ -97,10 +99,10 @@ export const Main = () => {
                 <Experience />
               </TabsContent>
               <TabsContent value="projects">
-                Change your password here.
+                <Projects />
               </TabsContent>
               <TabsContent value="publications">
-                Change your password here.
+                <Publications />
               </TabsContent>
             </Tabs>
           </div>
