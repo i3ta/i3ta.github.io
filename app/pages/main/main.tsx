@@ -13,6 +13,8 @@ import { Loader } from '~/components/loader';
 import { useProgress } from '@react-three/drei';
 import { useLoader } from '~/contexts/loaderContext';
 import { useEffect } from 'react';
+import { Timeline } from '~/components/timeline';
+import { Experience } from '~/components/experience';
 
 export const Main = () => {
   const { loaded: canvasLoaded } = useProgress();
@@ -31,7 +33,6 @@ export const Main = () => {
 
   useEffect(() => {
     if (canvasLoaded !== 0) {
-      console.log('loaded!');
       setLoaded(true);
     }
   }, [canvasLoaded]);
@@ -87,14 +88,13 @@ export const Main = () => {
           </div>
           <div className="relative w-full flex flex-col items-center">
             <Tabs defaultValue="experience" className="w-10/12 max-w-5xl">
-              <TabsList className="w-full sticky top-8">
+              <TabsList className="w-full sticky top-8 z-20">
                 <TabsTrigger value="experience">Experience</TabsTrigger>
                 <TabsTrigger value="projects">Projects</TabsTrigger>
                 <TabsTrigger value="publications">Publications</TabsTrigger>
               </TabsList>
               <TabsContent value="experience">
-                Make changes to your account here.
-                <div className="w-1 h-[1000px]" />
+                <Experience />
               </TabsContent>
               <TabsContent value="projects">
                 Change your password here.

@@ -11,7 +11,7 @@ export default defineConfig({
     reactRouter(),
     tsconfigPaths(),
     markdownRawPlugin({
-      fileRegex: /\.glsl$/,
+      fileRegex: /\.glsl$|\.md$/,
     }),
   ],
   resolve: {

@@ -10,8 +10,29 @@ h2 {
   color: #ffffff;
 }
 
+h3 {
+  font-family: 'San Francisco', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
 p {
   font-family: 'San Francisco', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 20px;
+  color: #ffffff;
+}
+
+/*** Timeline description classes ***/
+.timeline-description > p {
+  font-family: 'San Francisco', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.timeline-description > h1 {
+  font-family: 'San Francisco', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
   color: #ffffff;
 }
