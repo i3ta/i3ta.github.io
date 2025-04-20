@@ -8,9 +8,9 @@ export const Footer = () => {
           © 2025 Aaron Hung.
         </span>
         <div className="flex flex-row gap-2">
-          <img src="/dew.png" className="h-6" />
-          <img src="/snowy.png" className="h-6" />
-          <img src="/cherri.png" className="h-6" />
+          <img src="/dew.png" alt="Photo of Dew" className="h-6" />
+          <img src="/snowy.png" alt="Photo of Snowy" className="h-6" />
+          <img src="/cherri.png" alt="Photo of Cherri" className="h-6" />
         </div>
         <span className="text-xs text-neutral-500 text-center">
           All rights reserved. All content on this website, including text,
