@@ -1,4 +1,7 @@
-import { ParticleMaterial } from '@/materials/particleMaterial';
+import {
+  ParticleMaterial,
+  ParticleMaterialType,
+} from '@/materials/particleMaterial';
 import { Sampler, type TransformFn } from '@react-three/drei';
 import { extend, useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
@@ -10,10 +13,10 @@ export const SampledParticles = ({
   geometry,
   count,
 }: {
-  geometry: THREE.GeometryGroup;
+  geometry: THREE.BufferGeometry;
   count: number;
 }) => {
-  const materialRef = useRef<any>(null!);
+  const materialRef = useRef<ParticleMaterialType>(null!);
   const instancedMeshRef = useRef<THREE.InstancedMesh>(null!);
   const { pointer, camera } = useThree();
 
@@ -64,7 +67,7 @@ export const SampledParticles = ({
   );
 };
 
-function transformInstance({ dummy, position }: TransformPayload, i: number) {
+function transformInstance({ dummy, position }: TransformPayload) {
   dummy.position.copy(position);
   dummy.position.z += 15;
   dummy.scale.setScalar(1);

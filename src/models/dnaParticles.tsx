@@ -7,12 +7,12 @@ export const DNAParticles = ({ count = 8000 }: { count?: number }) => {
   const { nodes } = useGLTF('/dna.glb');
 
   const geometry1 = useMemo(() => {
-    const cloned = nodes.Cylinder001.geometry.clone();
+    const cloned = (nodes.Cylinder001 as THREE.Mesh).geometry.clone();
     return cloned;
   }, [nodes]);
 
   const geometry2 = useMemo(() => {
-    const cloned = nodes.Cylinder002.geometry.clone();
+    const cloned = (nodes.Cylinder002 as THREE.Mesh).geometry.clone();
     cloned.applyMatrix4(new THREE.Matrix4().makeRotationZ(Math.PI));
     return cloned;
   }, [nodes]);

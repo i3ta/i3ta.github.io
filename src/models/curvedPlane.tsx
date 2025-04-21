@@ -21,7 +21,7 @@ export const CurvedPlane = ({
 
     for (let i = 0; i < posAttr.count; i++) {
       const x = pos[i * 3]; // X
-      const y = pos[i * 3 + 1]; // Y
+      // const y = pos[i * 3 + 1]; // Y
       const t = x / width; // normalized X [-0.5, 0.5]
 
       // Compute curve offset

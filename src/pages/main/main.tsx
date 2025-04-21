@@ -34,8 +34,8 @@ export const Main = () => {
   /* Model stop scrolling position */
   const [heroHeight, setHeroHeight] = useState(0);
   const [dnaHeight, setDnaHeight] = useState(0);
-  const heroRef = useRef(null!);
-  const dnaRef = useRef(null!);
+  const heroRef = useRef<HTMLDivElement>(null!);
+  const dnaRef = useRef<HTMLDivElement>(null!);
   const stopAt = heroHeight - dnaHeight;
   const shouldFix = scrollY < stopAt;
 
