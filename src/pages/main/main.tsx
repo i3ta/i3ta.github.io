@@ -17,12 +17,16 @@ import { Experience } from '@/components/experience';
 import { Projects } from '@/components/projects';
 import { Publications } from '@/components/publications';
 import { Footer } from '@/components/footer';
+import { useWindowSize } from '@/hooks/useWindowSize';
+import { cn } from '@/lib/utils';
 
 export const Main = () => {
   const { loaded: canvasLoaded } = useProgress();
   const { loaded, setLoaded } = useLoader();
 
   const scrollY = useScrollAbsolute();
+  const { width } = useWindowSize();
+  const mobileView = width < 920;
 
   /* Shrinking background animation */
   const bgWidth = useScale(scrollY, [0, 400], [100, 40]);
@@ -38,6 +42,21 @@ export const Main = () => {
   const dnaRef = useRef<HTMLDivElement>(null!);
   const stopAt = heroHeight - dnaHeight;
   const shouldFix = scrollY < stopAt;
+
+  const bgContainerStyles: React.CSSProperties = mobileView
+    ? {
+        width: '100vw',
+        position: shouldFix ? 'fixed' : 'absolute',
+        top: shouldFix ? `0` : `${stopAt}px`,
+      }
+    : {
+        position: shouldFix ? 'fixed' : 'absolute',
+        width: `${bgWidth}vw`,
+        height: `min(${bgHeight}vh, 1200px)`,
+        right: `${bgRight}vw`,
+        top: shouldFix ? `${bgTop}vh` : `calc(5vh + ${stopAt}px)`,
+        borderRadius: `${bgBorderRadius}px`,
+      };
 
   useEffect(() => {
     if (canvasLoaded !== 0) {
@@ -71,14 +90,7 @@ export const Main = () => {
         <div className="fixed top-0 h-screen w-screen bg-gradient-to-br from-neutral-900 to-neutral-950 -z-20" />
         <div
           className="h-screen -z-10 overflow-hidden border border-black shadow-black !shadow-lg"
-          style={{
-            position: shouldFix ? 'fixed' : 'absolute',
-            width: `${bgWidth}vw`,
-            height: `min(${bgHeight}vh, 1200px)`,
-            right: `${bgRight}vw`,
-            top: shouldFix ? `${bgTop}vh` : `calc(5vh + ${stopAt}px)`,
-            borderRadius: `${bgBorderRadius}px`,
-          }}
+          style={bgContainerStyles}
         >
           <DNABackground cameraAngle={2.8} ref={dnaRef} />
         </div>
@@ -107,10 +119,13 @@ export const Main = () => {
         {/* Content */}
         <div className="relative w-9/10 max-w-5xl flex flex-col items-start gap-8">
           <div className="relative mt-36">
-            <HeroContent ref={heroRef} />
+            <HeroContent ref={heroRef} mobile={mobileView} />
           </div>
           <div className="relative w-full flex flex-col items-center">
-            <Tabs defaultValue="experience" className="w-10/12 max-w-5xl">
+            <Tabs
+              defaultValue="experience"
+              className={cn('max-w-5xl', mobileView ? 'w-full' : 'w-10/12')}
+            >
               <TabsList className="w-full sticky top-8 z-20">
                 <TabsTrigger value="experience">Experience</TabsTrigger>
                 <TabsTrigger value="projects">Projects</TabsTrigger>
