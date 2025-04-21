@@ -3,5 +3,6 @@ export type Project = {
   summary?: string;
   tags?: Array<string>;
   image?: React.ReactNode;
+  link?: string;
   description?: string;
 };
