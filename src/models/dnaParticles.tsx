@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import * as THREE from 'three';
 import { SampledParticles } from './sampledParticles';
 
-export const DNAParticles = ({ count = 10000 }: { count?: number }) => {
+export const DNAParticles = ({ count = 8000 }: { count?: number }) => {
   const { nodes } = useGLTF('/dna.glb');
 
   const geometry1 = useMemo(() => {

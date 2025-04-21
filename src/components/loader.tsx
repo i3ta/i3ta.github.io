@@ -1,5 +1,5 @@
-import '~/styles/loader.css';
 import { motion, AnimatePresence } from 'motion/react';
+import '@/styles/loader.css';
 
 export const Loader = ({ visible = false }: { visible?: boolean }) => {
   return (

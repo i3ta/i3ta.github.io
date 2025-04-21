@@ -1,0 +1,47 @@
+import type { TimelineItem } from "@/types/timelineItem";
+import { Timeline } from "./timeline";
+
+export const Experience = () => {
+  const items: Array<TimelineItem> = [
+    {
+      role: "Student Researcher",
+      organization: "Integrative Systems Biology Lab @ Georgia Tech",
+      startDate: new Date("2024-12-01"),
+      tags: ["Computatational Biology", "HPC", "C/C++"],
+    },
+    {
+      role: "Research Assistant",
+      organization: "Coskun Lab @ Georgia Tech",
+      startDate: new Date("2024-12-01"),
+      tags: ["Computatational Biology", "HPC", "C/C++"],
+    },
+    {
+      role: "Student Researcher",
+      organization: "SIPLab @ Georgia Tech",
+      startDate: new Date("2024-05-01"),
+      tags: ["Computatational Biology", "Deep Learning", "PyTorch"],
+    },
+    {
+      role: "Software Engineering Lead",
+      organization: "Molecular Evolution Core Lab @ Georgia Tech",
+      startDate: new Date("2024-01-01"),
+      tags: ["Fullstack Development", "MERN"],
+    },
+    {
+      role: "Cancer Research Intern",
+      organization: "Institute of Statistical Science @ Academia Sinica",
+      startDate: new Date("2021-03-01"),
+      endDate: new Date("2023-08-01"),
+      tags: ["Computatational Biology", "HPC", "C/C++", "NGS Data Analysis"],
+    },
+  ];
+
+  return (
+    <div className="w-full max-w-4xl flex flex-col items-center py-8 gap-8">
+      <h1 className="text-4xl font-bold bg-linear-to-r from-neutral-100 to-neutral-300 text-transparent bg-clip-text">
+        Experience
+      </h1>
+      <Timeline items={items} />
+    </div>
+  );
+};

@@ -1,22 +1,22 @@
-import { DNABackground } from '~/components/dnaBackground';
-import { useScrollAbsolute } from '~/hooks/useScrollAbsolute';
-import { useScale } from '~/hooks/useScale';
+import { useEffect, useRef, useState } from 'react';
+import { DNABackground } from '@/components/dnaBackground';
+import { useScrollAbsolute } from '@/hooks/useScrollAbsolute';
+import { useScale } from '@/hooks/useScale';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { HeroContent } from '~/components/heroContent';
+import { HeroContent } from '@/components/heroContent';
 import { Button } from '@/components/ui/button';
 import {
   IconBrandLinkedin,
   IconBrandGithub,
   IconMail,
 } from '@tabler/icons-react';
-import { Loader } from '~/components/loader';
+import { Loader } from '@/components/loader';
 import { useProgress } from '@react-three/drei';
-import { useLoader } from '~/contexts/loaderContext';
-import { useEffect, useRef, useState } from 'react';
-import { Experience } from '~/components/experience';
-import { Projects } from '~/components/projects';
-import { Publications } from '~/components/publications';
-import { Footer } from '~/components/footer';
+import { useLoader } from '@/contexts/loaderContext';
+import { Experience } from '@/components/experience';
+import { Projects } from '@/components/projects';
+import { Publications } from '@/components/publications';
+import { Footer } from '@/components/footer';
 
 export const Main = () => {
   const { loaded: canvasLoaded } = useProgress();
@@ -32,8 +32,11 @@ export const Main = () => {
   const bgBorderRadius = useScale(scrollY, [0, 400], [0, 20]);
 
   /* Model stop scrolling position */
-  const [stopAt, setStopAt] = useState(450);
+  const [heroHeight, setHeroHeight] = useState(0);
+  const [dnaHeight, setDnaHeight] = useState(0);
   const heroRef = useRef(null!);
+  const dnaRef = useRef(null!);
+  const stopAt = heroHeight - dnaHeight;
   const shouldFix = scrollY < stopAt;
 
   useEffect(() => {
@@ -45,14 +48,17 @@ export const Main = () => {
   useEffect(() => {
     const getDims = () => {
       if (heroRef.current) {
-        setStopAt(Math.max(450, heroRef.current.offsetHeight - 590));
+        setHeroHeight(heroRef.current.offsetHeight + 144);
+      }
+      if (dnaRef.current) {
+        setDnaHeight(dnaRef.current.offsetHeight);
       }
     };
 
     window.addEventListener('resize', getDims);
     getDims();
     return () => window.removeEventListener('resize', getDims);
-  }, [heroRef]);
+  }, [heroRef, dnaRef]);
 
   return (
     <>
@@ -60,21 +66,21 @@ export const Main = () => {
       <Loader visible={!loaded} />
 
       {/* Page */}
-      <div className="relative w-screen flex flex-row justify-center pt-16">
+      <div className="relative w-screen flex flex-row justify-center pt-16 overflow-hidden">
         {/* Background layers */}
         <div className="fixed top-0 h-screen w-screen bg-gradient-to-br from-neutral-900 to-neutral-950 -z-20" />
         <div
-          className={`h-screen -z-10 overflow-hidden border border-black shadow-black !shadow-lg`}
+          className="h-screen -z-10 overflow-hidden border border-black shadow-black !shadow-lg"
           style={{
             position: shouldFix ? 'fixed' : 'absolute',
             width: `${bgWidth}vw`,
-            height: `${bgHeight}vh`,
+            height: `min(${bgHeight}vh, 1200px)`,
             right: `${bgRight}vw`,
             top: shouldFix ? `${bgTop}vh` : `calc(5vh + ${stopAt}px)`,
             borderRadius: `${bgBorderRadius}px`,
           }}
         >
-          <DNABackground cameraAngle={2.8} />
+          <DNABackground cameraAngle={2.8} ref={dnaRef} />
         </div>
         <div className="absolute top-8 right-8 flex flex-row gap-4">
           <Button variant="ghost" size="icon" className="cursor-pointer">

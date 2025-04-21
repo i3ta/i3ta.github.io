@@ -1,6 +1,6 @@
-import { Badge } from '@/components/ui/badge';
-import { Card, CardDescription, CardTitle } from '@/components/ui/card';
-import type { Project } from '~/types/project';
+import { Badge } from "@/components/ui/badge";
+import { Card, CardDescription, CardTitle } from "@/components/ui/card";
+import type { Project } from "@/types/project";
 
 const ProjectCard = ({ item }: { item: Project }) => {
   return (
@@ -19,22 +19,22 @@ const ProjectCard = ({ item }: { item: Project }) => {
 export const Projects = () => {
   const projects: Array<Project> = [
     {
-      name: 'Pin Preview',
+      name: "Pin Preview",
       summary:
-        'An app on the Snap Spectacles AR glasses to identify chips and get datasheets.',
-      tags: ['Snap Spectacles', 'AR', 'Computer Vision'],
+        "An app on the Snap Spectacles AR glasses to identify chips and get datasheets.",
+      tags: ["Snap Spectacles", "AR", "Computer Vision"],
     },
     {
-      name: 'Lamieux Website',
+      name: "Lamieux Website",
       summary:
-        'A website for the Taiwanese low-pressure molding company, Lamieux.',
-      tags: ['UI/UX', 'Fullstack', 'Next.js'],
+        "A website for the Taiwanese low-pressure molding company, Lamieux.",
+      tags: ["UI/UX", "Fullstack", "Next.js"],
     },
     {
-      name: 'Frame by Frame',
+      name: "Frame by Frame",
       summary:
-        'A photobooth website that allows you take, edit, and save photos however you like.',
-      tags: ['WIP', 'Fullstack', 'Computer Vision'],
+        "A photobooth website that allows you take, edit, and save photos however you like.",
+      tags: ["WIP", "Fullstack", "Computer Vision"],
     },
   ];
 

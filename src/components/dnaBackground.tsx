@@ -4,10 +4,20 @@ import { Canvas } from '@react-three/fiber';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import * as THREE from 'three';
 import { CurvedPlane } from '../../src/models/curvedPlane';
+import { RefObject } from 'react';
 
-export const DNABackground = ({ cameraAngle }: { cameraAngle?: number }) => {
+export const DNABackground = ({
+  cameraAngle,
+  ref,
+}: {
+  cameraAngle?: number;
+  ref?: RefObject<HTMLDivElement> | undefined;
+}) => {
   return (
-    <div className="absolute !w-screen !h-screen top-0 right-0">
+    <div
+      className="absolute !w-screen !h-screen max-h-[1200px] top-0 right-0"
+      ref={ref}
+    >
       <Canvas
         camera={{ fov: 45 }}
         onCreated={({ scene }) => {

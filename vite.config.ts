@@ -1,15 +1,14 @@
 import path from 'path';
-import { reactRouter } from '@react-router/dev/vite';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
+import react from '@vitejs/plugin-react';
 import markdownRawPlugin from 'vite-raw-plugin';
 
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [
+    react(),
     tailwindcss(),
-    reactRouter(),
-    tsconfigPaths(),
     markdownRawPlugin({
       fileRegex: /\.glsl$|\.md$/,
     }),

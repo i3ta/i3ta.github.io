@@ -1,9 +1,9 @@
-import { Badge } from '@/components/ui/badge';
-import { useState } from 'react';
-import type { TimelineItem } from '~/types/timelineItem';
-import Markdown from 'react-markdown';
-import { AnimatePresence, motion } from 'motion/react';
-import { Separator } from '@/components/ui/separator';
+import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
+import type { TimelineItem } from "@/types/timelineItem";
+import Markdown from "react-markdown";
+import { AnimatePresence, motion } from "motion/react";
+import { Separator } from "@/components/ui/separator";
 
 const TimelineEntry = ({
   item,
@@ -15,17 +15,17 @@ const TimelineEntry = ({
   const [expanded, setExpanded] = useState(false);
 
   const formatDateString = (date: Date) => {
-    return date.toLocaleString('en-US', {
-      month: 'long',
-      year: 'numeric',
-      timeZone: 'UTC',
+    return date.toLocaleString("en-US", {
+      month: "long",
+      year: "numeric",
+      timeZone: "UTC",
     });
   };
 
   const startDateString = formatDateString(item.startDate);
   const endDateString = item.endDate
     ? formatDateString(item.endDate)
-    : 'Present';
+    : "Present";
 
   const handleClick = () => {
     if (item.description) {
@@ -41,8 +41,8 @@ const TimelineEntry = ({
         <div
           className={`w-[3px] flex-1 ${
             lastEntry
-              ? 'bg-linear-to-b from-white to-neutral-950 min-h-64'
-              : 'bg-white'
+              ? "bg-linear-to-b from-white to-neutral-950 min-h-64"
+              : "bg-white"
           }`}
         ></div>
       </div>
@@ -50,15 +50,15 @@ const TimelineEntry = ({
         <div className="relative flex flex-col gap-4 items-start px-4 py-2 w-full flex-1">
           <div
             className={`absolute top-0 left-0 w-full h-full from-neutral-800 to-neutral-900 transition-all bg-gradient-to-br rounded-lg  !shadow-lg shadow-black -z-10 ${
-              expanded ? 'opacity-100' : 'opacity-0'
+              expanded ? "opacity-100" : "opacity-0"
             }`}
           ></div>
           <div
             className={`flex flex-col w-full items-start transition-all ${
-              item.description && 'hover:opacity-80'
+              item.description && "hover:opacity-80"
             }`}
             style={{
-              cursor: item.description !== undefined ? 'pointer' : 'auto',
+              cursor: item.description !== undefined ? "pointer" : "auto",
             }}
             onClick={handleClick}
           >
@@ -82,9 +82,9 @@ const TimelineEntry = ({
                   <motion.div
                     className="timeline-description px-4"
                     initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
+                    animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
                     <Separator />
                     <div className="h-4"></div>

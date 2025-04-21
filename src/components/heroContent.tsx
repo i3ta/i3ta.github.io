@@ -1,31 +1,28 @@
 import { Button } from '@/components/ui/button';
-import { motion, useAnimation } from 'motion/react';
-import { useRef, type LegacyRef, type RefObject } from 'react';
+import { motion } from 'motion/react';
+import { RefObject } from 'react';
 
 export const HeroContent = ({
   ref,
 }: {
-  ref: LegacyRef<HTMLDivElement> | undefined;
+  ref: RefObject<HTMLDivElement> | undefined;
 }) => {
-  /* Title entrance animation */
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const controls = useAnimation();
-
   return (
     <div
       className="flex flex-col gap-8"
-      style={{ minHeight: 'calc(90vh + 450px - 9rem)' }}
+      style={{
+        minHeight: 'min(calc(90vh + 450px - 9rem), calc(1200px - 9rem))',
+        maxHeight: 'calc(1200px - 9rem)',
+      }}
       ref={ref}
     >
       <div className="flex flex-col overflow-hidden">
         <h2>Hi, I&apos;m</h2>
         <motion.h1
-          ref={titleRef}
-          className="font-bold text-9xl leading-[1.2] bg-linear-to-r from-tblue to-tgreen text-transparent bg-clip-text"
+          className="font-bold text-9xl leading-[1.2] bg-linear-to-r from-tblue to-tgreen text-transparent bg-clip-text transition-all"
           initial={{ y: '100%' }}
           whileInView={{ y: '0%' }}
           transition={{ type: 'spring', duration: 1, bounce: 0 }}
-          animate={controls}
         >
           Aaron Hung
         </motion.h1>
