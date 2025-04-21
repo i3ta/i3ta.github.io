@@ -46,7 +46,7 @@ const TimelineEntry = ({
           }`}
         ></div>
       </div>
-      <div className="flex flex-col top-[-18px] w-full">
+      <div className="relative flex flex-col top-[-18px] w-full">
         <div className="relative flex flex-col gap-4 items-start px-4 py-2 w-full flex-1">
           <div
             className={`absolute top-0 left-0 w-full h-full from-neutral-800 to-neutral-900 transition-all bg-gradient-to-br rounded-lg  !shadow-lg shadow-black -z-10 ${
