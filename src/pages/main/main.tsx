@@ -54,7 +54,7 @@ export const Main = () => {
         width: `${bgWidth}vw`,
         height: `min(${bgHeight}vh, 1200px)`,
         right: `${bgRight}vw`,
-        top: shouldFix ? `${bgTop}vh` : `calc(5vh + ${stopAt}px)`,
+        top: shouldFix ? `${bgTop}vh` : `calc(${bgTop}vh + ${stopAt}px)`,
         borderRadius: `${bgBorderRadius}px`,
       };
 
@@ -67,7 +67,7 @@ export const Main = () => {
   useEffect(() => {
     const getDims = () => {
       if (heroRef.current) {
-        setHeroHeight(heroRef.current.offsetHeight + 144);
+        setHeroHeight(heroRef.current.offsetHeight + 180);
       }
       if (dnaRef.current) {
         setDnaHeight(dnaRef.current.offsetHeight);

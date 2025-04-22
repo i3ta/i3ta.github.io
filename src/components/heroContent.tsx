@@ -14,13 +14,7 @@ export const HeroContent = ({
   const nameSize = mobile ? 'text-8xl leading-[1.3]' : 'text-9xl leading-[1.2]';
 
   return (
-    <div
-      className="flex flex-col gap-8"
-      style={{
-        minHeight: 'calc(90vh + 450px - 9rem)',
-      }}
-      ref={ref}
-    >
+    <div className="flex flex-col gap-8" ref={ref}>
       <div className="flex flex-col overflow-hidden">
         <h2>Hi, I&apos;m</h2>
         <motion.h1
@@ -61,6 +55,7 @@ export const HeroContent = ({
           </a>
         </Button>
       </div>
+      <div className="w-1 h-8"></div>
     </div>
   );
 };
