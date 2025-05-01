@@ -47,9 +47,7 @@ export const Experience = () => {
 
   return (
     <div className="w-full max-w-4xl flex flex-col items-center py-8 gap-8">
-      <h1 className="text-4xl font-bold bg-linear-to-r from-neutral-100 to-neutral-300 text-transparent bg-clip-text">
-        Experience
-      </h1>
+      <h1 className="gradient-heading">Experience</h1>
       <Timeline items={items} />
     </div>
   );

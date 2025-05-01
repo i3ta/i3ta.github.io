@@ -19,6 +19,7 @@ import { Publications } from '@/components/publications';
 import { Footer } from '@/components/footer';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { cn } from '@/lib/utils';
+import { About } from '@/components/about';
 
 export const Main = () => {
   const { loaded: canvasLoaded } = useProgress();
@@ -123,14 +124,18 @@ export const Main = () => {
           </div>
           <div className="relative w-full flex flex-col items-center">
             <Tabs
-              defaultValue="experience"
+              defaultValue="about"
               className={cn('max-w-5xl', mobileView ? 'w-full' : 'w-10/12')}
             >
               <TabsList className="w-full sticky top-8 z-20">
+                <TabsTrigger value="about">About Me</TabsTrigger>
                 <TabsTrigger value="experience">Experience</TabsTrigger>
                 <TabsTrigger value="projects">Projects</TabsTrigger>
                 <TabsTrigger value="publications">Publications</TabsTrigger>
               </TabsList>
+              <TabsContent value="about">
+                <About />
+              </TabsContent>
               <TabsContent value="experience">
                 <Experience />
               </TabsContent>
