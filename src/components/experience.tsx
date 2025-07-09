@@ -5,9 +5,17 @@ import isbDescription from '@/docs/isb.md';
 import coskunDescription from '@/docs/coskun.md';
 import siplabDescription from '@/docs/siplab.md';
 import bsdpDescription from '@/docs/bsdp.md';
+import cs2200Description from '@/docs/cs2200.md';
 
 export const Experience = () => {
   const items: Array<TimelineItem> = [
+    {
+      role: 'Undergraduate Teaching Assistant',
+      organization: 'CS 2200: Systems and Networks @ Georgia Tech',
+      startDate: new Date('2024-05-01'),
+      tags: ['Computer Architecture', 'OS', 'Cache', 'Virtual Memory'],
+      description: cs2200Description,
+    },
     {
       role: 'Student Researcher',
       organization: 'Integrative Systems Biology Lab @ Georgia Tech',
