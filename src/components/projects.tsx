@@ -111,14 +111,14 @@ const ProjectPopup = ({
         onClick={() => setOpen(false)}
       >
         <Card
-          className="block p-4 max-w-2xl w-11/12 clear-both"
+          className="block p-8 max-w-3xl w-11/12 clear-both"
           onClick={(e) => e.stopPropagation()}
         >
           {item.image && (
             <img
               src={item.image}
               alt={`${item.name} image`}
-              className="w-80 float-right m-2"
+              className="w-80 mb-4 md:float-right md:ml-4"
             />
           )}
           <CardTitle className="text-2xl">{item.name}</CardTitle>
