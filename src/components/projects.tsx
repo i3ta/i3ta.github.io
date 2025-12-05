@@ -39,6 +39,16 @@ export const Projects = () => {
       link: 'https://github.com/hhsiao24/Doc-McQuery',
       image: '/doc-mcquery-results.jpg',
     },
+    {
+      name: 'Neural Network Brain Tumor Classification',
+      summary:
+        'Trained several neural networks on a small set of training data for classifying brain tumors.',
+      description:
+        'Brain tumors are among the most difficult diseases to diagnose accurately, as MRI scans require careful interpretation and subtle differences can be overlooked. Our project explores the use of computer vision and machine learning to improve the accuracy and speed of brain tumor detection.',
+      tags: ['Computer Vision', 'Neural Networks', 'Artificial Intelligence'],
+      link: 'https://i3ta.github.io/brain-storm/',
+      image: '/dataset-cover.png',
+    },
   ];
 
   return (
