@@ -42,8 +42,6 @@ export const Main = () => {
   const stopAt = heroHeight - dnaHeight;
   const shouldFix = scrollY < stopAt;
 
-  console.log(shouldFix, bgRight);
-
   const bgContainerStyles: React.CSSProperties = mobileView
     ? {
         width: '100vw',
