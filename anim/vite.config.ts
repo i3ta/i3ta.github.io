@@ -1,8 +1,7 @@
-import path from 'path';
-import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import markdownRawPlugin from 'vite-raw-plugin';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -10,12 +9,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     markdownRawPlugin({
-      fileRegex: /\.md$/,
+      fileRegex: /\.glsl$/,
     }),
   ],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
-  },
 });

@@ -11,18 +11,16 @@ import {
   IconMail,
 } from '@tabler/icons-react';
 import { Loader } from '@/components/loader';
-import { useProgress } from '@react-three/drei';
 import { useLoader } from '@/contexts/loaderContext';
 import { Experience } from '@/components/experience';
 import { Projects } from '@/components/projects';
 import { Publications } from '@/components/publications';
 import { Footer } from '@/components/footer';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import { cn } from '@/lib/utils';
 import { About } from '@/components/about';
+import { cn } from '@/lib/utils';
 
 export const Main = () => {
-  const { loaded: canvasLoaded } = useProgress();
   const { loaded, setLoaded } = useLoader();
 
   const scrollY = useScrollAbsolute();
@@ -44,6 +42,8 @@ export const Main = () => {
   const stopAt = heroHeight - dnaHeight;
   const shouldFix = scrollY < stopAt;
 
+  console.log(shouldFix, bgRight);
+
   const bgContainerStyles: React.CSSProperties = mobileView
     ? {
         width: '100vw',
@@ -53,17 +53,11 @@ export const Main = () => {
     : {
         position: shouldFix ? 'fixed' : 'absolute',
         width: `${bgWidth}vw`,
-        height: `min(${bgHeight}vh, 1200px)`,
+        height: `${bgHeight}vh`,
         right: `${bgRight}vw`,
         top: shouldFix ? `${bgTop}vh` : `calc(${bgTop}vh + ${stopAt}px)`,
         borderRadius: `${bgBorderRadius}px`,
       };
-
-  useEffect(() => {
-    if (canvasLoaded !== 0) {
-      setLoaded(true);
-    }
-  }, [canvasLoaded]);
 
   useEffect(() => {
     const getDims = () => {
@@ -93,7 +87,7 @@ export const Main = () => {
           className="h-screen -z-10 overflow-hidden border border-black shadow-black !shadow-lg"
           style={bgContainerStyles}
         >
-          <DNABackground cameraAngle={2.8} ref={dnaRef} />
+          <DNABackground setLoaded={setLoaded} ref={dnaRef} />
         </div>
         <div className="absolute top-8 right-8 flex flex-row gap-4">
           <Button variant="ghost" size="icon" className="cursor-pointer">

@@ -1,11 +1,11 @@
-import {
-  ParticleMaterial,
-  ParticleMaterialType,
-} from '@/materials/particleMaterial';
 import { Sampler, type TransformFn } from '@react-three/drei';
 import { extend, useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import {
+  ParticleMaterial,
+  type ParticleMaterialType,
+} from '../materials/particleMaterial';
 
 extend({ ParticleMaterial });
 
@@ -20,7 +20,7 @@ export const SampledParticles = ({
   const instancedMeshRef = useRef<THREE.InstancedMesh>(null!);
   const { pointer, camera } = useThree();
 
-  const rotationSpeed = 0.005;
+  const rotationSpeed = 0.0052359878;
 
   useFrame((state) => {
     if (materialRef.current) {

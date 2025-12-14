@@ -105,6 +105,9 @@ float cnoise(vec3 P)
     return 2.2 * n_xyz;
 }
 
+const float loopDuration = 20.0; // 20 seconds for one full loop
+const float twoPi = 6.283185307; // 2 * pi
+
 void main() {
     vec3 pos = position;
 
@@ -112,9 +115,11 @@ void main() {
     float seedY = instanceIndex * 71.3;
     float seedZ = instanceIndex * 19.7;
 
-    vec3 noiseInputX = vec3(uTime * 0.5 + instanceIndex, seedX, -seedX);
-    vec3 noiseInputY = vec3(uTime * 0.5 + instanceIndex, seedY, -seedY);
-    vec3 noiseInputZ = vec3(uTime * 0.5 + instanceIndex, seedZ, -seedZ);
+    float angle = mod(uTime, loopDuration) / loopDuration * twoPi;
+
+    vec3 noiseInputX = vec3(angle + instanceIndex, seedX, -seedX);
+    vec3 noiseInputY = vec3(angle + instanceIndex, seedY, -seedY);
+    vec3 noiseInputZ = vec3(angle + instanceIndex, seedZ, -seedZ);
 
     pos.x += cnoise(noiseInputX) * 0.15;
     pos.y += cnoise(noiseInputY) * 0.15;
