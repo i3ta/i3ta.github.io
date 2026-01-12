@@ -30,7 +30,7 @@ export const HeroContent = ({
         </motion.h1>
       </div>
       <p className={textSize}>
-        I&apos;m a second year <b>computer science + biochemistry</b> student at{' '}
+        I&apos;m a third year <b>computer science + biochemistry</b> student at{' '}
         <b>Georgia Tech 🐝</b>. My passions are in software and biotechnology,
         and I strive to leverage the power of modern computing to improve life
         everywhere, for everyone.

@@ -10,9 +10,9 @@ import cs2200Description from '@/docs/cs2200.md';
 export const Experience = () => {
   const items: Array<TimelineItem> = [
     {
-      role: 'Undergraduate Teaching Assistant',
+      role: 'Senior Teaching Assistant',
       organization: 'CS 2200: Systems and Networks @ Georgia Tech',
-      startDate: new Date('2024-05-01'),
+      startDate: new Date('2025-08-01'),
       tags: ['Computer Architecture', 'OS', 'Cache', 'Virtual Memory'],
       description: cs2200Description,
     },
