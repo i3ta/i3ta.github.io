@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { DNABackground } from '@/components/dnaBackground';
 import { useScrollAbsolute } from '@/hooks/useScrollAbsolute';
 import { useScale } from '@/hooks/useScale';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -10,8 +9,6 @@ import {
   IconBrandGithub,
   IconMail,
 } from '@tabler/icons-react';
-import { Loader } from '@/components/loader';
-import { useLoader } from '@/contexts/loaderContext';
 import { Experience } from '@/components/experience';
 import { Projects } from '@/components/projects';
 import { Publications } from '@/components/publications';
@@ -19,9 +16,10 @@ import { Footer } from '@/components/footer';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { About } from '@/components/about';
 import { cn } from '@/lib/utils';
+import { DnaBackground } from '@/components/dnaBackground';
 
 export const Main = () => {
-  const { loaded, setLoaded } = useLoader();
+  // const { loaded, setLoaded } = useLoader();
 
   const scrollY = useScrollAbsolute();
   const { width } = useWindowSize();
@@ -75,7 +73,7 @@ export const Main = () => {
   return (
     <>
       {/* Loader */}
-      <Loader visible={!loaded} />
+      {/* <Loader visible={!loaded} /> */}
 
       {/* Page */}
       <div className="relative w-screen flex flex-row justify-center pt-16 overflow-hidden">
@@ -85,7 +83,8 @@ export const Main = () => {
           className="h-screen -z-10 overflow-hidden border border-black shadow-black !shadow-lg"
           style={bgContainerStyles}
         >
-          <DNABackground setLoaded={setLoaded} ref={dnaRef} />
+          {/* <DNABackgroundVideo setLoaded={setLoaded} ref={dnaRef} /> */}
+          <DnaBackground ref={dnaRef} />
         </div>
         <div className="absolute top-8 right-8 flex flex-row gap-4">
           <Button variant="ghost" size="icon" className="cursor-pointer">
